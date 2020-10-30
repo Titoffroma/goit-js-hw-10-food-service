@@ -10,15 +10,14 @@ const body = document.querySelector('body');
 // и устанавливает инпут в соответсвующее положение
 
 const themeChosen = storage.load('Theme');
-themeToggle.checked = themeChosen === 'true' ? true : false;
-body.classList.add(themeChosen === 'true' ? Theme.DARK : Theme.LIGHT);
+themeToggle.checked = themeChosen === true ? true : false;
+body.classList.add(themeChosen === true ? Theme.DARK : Theme.LIGHT);
+
 const toggleTheme = function () {
   storage.save(
     'Theme',
-    `${body.classList.toggle(Theme.DARK, !body.classList.toggle(Theme.LIGHT))}`,
+    body.classList.toggle(Theme.DARK, !body.classList.toggle(Theme.LIGHT)),
   );
 };
 
 themeToggle.addEventListener('change', toggleTheme);
-
-console.dir(themeToggle);
