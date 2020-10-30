@@ -2450,15 +2450,14 @@ var body = document.querySelector('body'); // Проверяет наличие 
 
 var themeChosen = _storage.default.load('Theme');
 
-themeToggle.checked = themeChosen === 'true' ? true : false;
-body.classList.add(themeChosen === 'true' ? Theme.DARK : Theme.LIGHT);
+themeToggle.checked = themeChosen ? true : false;
+body.classList.add(themeChosen ? Theme.DARK : Theme.LIGHT);
 
 var toggleTheme = function toggleTheme() {
-  _storage.default.save('Theme', "".concat(body.classList.toggle(Theme.DARK, !body.classList.toggle(Theme.LIGHT))));
+  _storage.default.save('Theme', body.classList.toggle(Theme.DARK, !body.classList.toggle(Theme.LIGHT)));
 };
 
 themeToggle.addEventListener('change', toggleTheme);
-console.dir(themeToggle);
 },{"./storage":"js/storage.js"}],"js/main.js":[function(require,module,exports) {
 "use strict";
 
@@ -2511,7 +2510,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63451" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63599" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
